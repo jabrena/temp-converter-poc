@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+>
+    <soap:Body>
+        <CelsiusToFahrenheitResponse xmlns="http://www.w3schools.com/xml/">
+            <CelsiusToFahrenheitResult>93.2</CelsiusToFahrenheitResult>
+        </CelsiusToFahrenheitResponse>
+    </soap:Body>
+</soap:Envelope>
