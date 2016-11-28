@@ -1,35 +1,33 @@
-package com.victorherraiz.pocs.client;
+package com.victorherraiz.pocs;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.victorherraiz.pocs.WeatherConfiguration;
-import com.w3schools.tempconvert.CelsiusToFahrenheitResponse;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.io.Resource;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.ws.test.client.MockWebServiceServer;
 
-import static org.hamcrest.MatcherAssert.assertThat;
+import java.math.BigDecimal;
+
 import static org.hamcrest.Matchers.hasProperty;
 import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 import static org.springframework.ws.test.client.RequestMatchers.soapEnvelope;
 import static org.springframework.ws.test.client.ResponseCreators.withSoapEnvelope;
 
-
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = WeatherConfiguration.class)
-public class WeatherClientTest {
-
-    private static final Logger log = LoggerFactory.getLogger(WeatherClientTest.class);
+@SpringBootTest(classes = TemperatureConverterConfiguration.class)
+public class TemperatureConverterServiceIntegrationTest {
 
     @Autowired
     private TempConverterClient client;
+
+    @Autowired
+    private TemperatureConverterService service;
 
     @Value("classpath:/request.xml")
     private Resource mockrequest;
@@ -45,14 +43,12 @@ public class WeatherClientTest {
     }
 
     @Test
-    public void getCityForecastByZip() throws Exception {
+    public void celsiusToFahrenheit() throws Exception {
         mockServer.expect(soapEnvelope(mockrequest)).andRespond(withSoapEnvelope(response));
-        final CelsiusToFahrenheitResponse response = client.celsiusToFahrenheit("34");
-        assertThat(response, hasProperty("celsiusToFahrenheitResult", is("93.2")));
-        log.info(new ObjectMapper().writeValueAsString(response));
-
+        final Temperature forecast = service.celsiusToFahrenheit("34");
+        assertThat(forecast, hasProperty("value", is(new BigDecimal("93.2"))));
+        assertThat(forecast, hasProperty("unit", is(Temperature.Unit.Fahrenheit)));
         mockServer.verify();
-
     }
 
 }

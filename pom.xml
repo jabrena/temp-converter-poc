@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.victorherraiz.pocs</groupId>
-    <artifactId>WebServiceClientPOC</artifactId>
+    <artifactId>TemperatureConverter</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
     <parent>
@@ -69,12 +69,6 @@
                 </executions>
                 <configuration>
                     <schemaLanguage>WSDL</schemaLanguage>
-                    <generatePackage>com.w3schools.tempconvert</generatePackage>
-                    <schemas>
-                        <schema>
-                            <url>http://www.w3schools.com/xml/tempconvert.asmx?wsdl</url>
-                        </schema>
-                    </schemas>
                 </configuration>
             </plugin>
             <!-- end::wsdl[] -->

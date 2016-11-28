@@ -10,11 +10,11 @@ import org.springframework.context.annotation.Bean;
 public class WebServiceClientPOC {
 
     public static void main(String[] args) {
-        SpringApplication.run(WebServiceClientPOC.class);
+        SpringApplication.run(WebServiceClientPOC.class, args);
     }
 
     @Bean
-    CommandLineRunner lookup(WeatherService service) {
+    CommandLineRunner lookup(TemperatureConverterService service) {
         return args -> {
             String celsius = "34";
 

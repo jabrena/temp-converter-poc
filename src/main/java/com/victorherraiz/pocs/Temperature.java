@@ -1,8 +1,7 @@
 package com.victorherraiz.pocs;
 
-
-import com.w3schools.tempconvert.CelsiusToFahrenheitResponse;
-import com.w3schools.tempconvert.FahrenheitToCelsiusResponse;
+import com.w3schools.xml.CelsiusToFahrenheitResponse;
+import com.w3schools.xml.FahrenheitToCelsiusResponse;
 
 import java.math.BigDecimal;
 

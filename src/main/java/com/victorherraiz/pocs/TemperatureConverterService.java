@@ -1,13 +1,11 @@
 package com.victorherraiz.pocs;
 
 
-import com.victorherraiz.pocs.client.TempConverterClient;
-
-public class WeatherService {
+public class TemperatureConverterService {
 
     private final TempConverterClient tempConverterClient;
 
-    public WeatherService(TempConverterClient tempConverterClient) {
+    public TemperatureConverterService(TempConverterClient tempConverterClient) {
         this.tempConverterClient = tempConverterClient;
     }
 

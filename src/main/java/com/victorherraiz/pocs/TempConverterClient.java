@@ -1,7 +1,8 @@
-package com.victorherraiz.pocs.client;
+package com.victorherraiz.pocs;
 
-import com.w3schools.tempconvert.CelsiusToFahrenheit;
-import com.w3schools.tempconvert.CelsiusToFahrenheitResponse;
+
+import com.w3schools.xml.CelsiusToFahrenheit;
+import com.w3schools.xml.CelsiusToFahrenheitResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
