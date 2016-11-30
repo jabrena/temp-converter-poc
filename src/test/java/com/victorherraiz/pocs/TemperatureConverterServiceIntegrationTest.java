@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.io.Resource;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.ws.test.client.MockWebServiceServer;
 
@@ -24,10 +23,10 @@ import static org.springframework.ws.test.client.ResponseCreators.withSoapEnvelo
 public class TemperatureConverterServiceIntegrationTest {
 
     @Autowired
-    private TempConverterClient client;
+    private TempConverterClientImpl client;
 
     @Autowired
-    private TemperatureConverterService service;
+    private TemperatureConverterServiceImpl service;
 
     @Value("classpath:/request.xml")
     private Resource mockrequest;

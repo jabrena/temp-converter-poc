@@ -28,7 +28,7 @@ public class TemperatureConverterClientTest {
     private static final Logger log = LoggerFactory.getLogger(TemperatureConverterClientTest.class);
 
     @Autowired
-    private TempConverterClient client;
+    private TempConverterClientImpl client;
 
     @Value("classpath:/request.xml")
     private Resource mockrequest;

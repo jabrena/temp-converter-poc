@@ -26,7 +26,7 @@ public class TemperatureConverterServiceTest {
     private TempConverterClient client;
 
     @Autowired
-    private TemperatureConverterService service;
+    private TemperatureConverterServiceImpl service;
 
     @Before
     public void before() {
